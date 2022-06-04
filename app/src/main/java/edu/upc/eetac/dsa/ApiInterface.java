@@ -32,8 +32,8 @@ public interface ApiInterface {
     @POST("users/profile")
     Call<User> profile (@Body String username);
 
-    @POST("users/consult")
-    Call<User> consult(@Body Consult consult);
+    @POST("users/question")
+    Call<List<Consult>> question(@Body Consult consult);
 
 
 }

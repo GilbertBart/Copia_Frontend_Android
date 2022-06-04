@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import edu.upc.eetac.dsa.databinding.ActivityRegisterBinding;
+import java.util.List;
+
 import edu.upc.eetac.dsa.models.*;
 
 
@@ -69,17 +71,30 @@ public class ConsultActivity extends AppCompatActivity {
         String message = messageText.getText().toString().trim();
         String sender = senderText.getText().toString().trim();
 
-        apiInterface.consult(new Consult(date,title,message,sender)).enqueue(new Callback<User>() {
+        apiInterface.question(new Consult(date,title,message,sender)).enqueue(new Callback<List<Consult>>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<List<Consult>> call, Response<List<Consult>> response) {
                 String c = Integer.toString(response.code());
                 Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
             }
+
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<List<Consult>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
             }
+
         });
+//        apiInterface.question(new Consult(date,title,message,sender)).enqueue(new Callback<List<Consult>>() {
+////            @Override
+//            public void onResponse(Call<Consult> call, Response<Consult> response) {
+//                String c = Integer.toString(response.code());
+//                Toast.makeText(getApplicationContext(), c + ": " + response.message(), Toast.LENGTH_SHORT).show();
+//            }
+//            @Override
+//            public void onFailure(Call<Consult> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "Error22", Toast.LENGTH_SHORT).show();
+//            }
+
 
     }
 }
