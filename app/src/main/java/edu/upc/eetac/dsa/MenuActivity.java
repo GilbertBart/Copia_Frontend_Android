@@ -49,7 +49,7 @@ public class MenuActivity extends AppCompatActivity {
 
         });
 
-        shop.setOnClickListener(new View.OnClickListener() {
+        question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openConsultActivity();
