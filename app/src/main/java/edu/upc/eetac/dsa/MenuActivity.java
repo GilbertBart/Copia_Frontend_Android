@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button profile,stats,shop,logout;
+    private Button profile,stats,shop,logout,question;
 
     ApiInterface apiInterface;
 
@@ -23,6 +23,7 @@ public class MenuActivity extends AppCompatActivity {
         stats = (Button) findViewById(R.id.button_stats);
         shop = (Button) findViewById(R.id.button_shop);
         logout = (Button) findViewById(R.id.button_logout);
+        question = (Button) findViewById(R.id.button_question);
         apiInterface = Api.getClient();
 
         profile.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +49,14 @@ public class MenuActivity extends AppCompatActivity {
 
         });
 
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openConsultActivity();
+            }
+
+        });
+
     }
 
     private void openProfileActivity(){
@@ -61,6 +70,11 @@ public class MenuActivity extends AppCompatActivity {
     }
     private void openShopActivity(){
         Intent intent = new Intent(this, ShopActivity.class);
+        startActivity(intent);
+    }
+
+    private void openConsultActivity(){
+        Intent intent = new Intent(this, ConsultActivity.class);
         startActivity(intent);
     }
 

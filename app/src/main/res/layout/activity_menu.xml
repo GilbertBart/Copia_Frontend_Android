@@ -7,8 +7,8 @@
     tools:context=".MenuActivity">
 
     <LinearLayout
-        android:layout_width="276dp"
-        android:layout_height="431dp"
+        android:layout_width="367dp"
+        android:layout_height="515dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +50,16 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Log Out" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/button_question"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="QUESTION" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
